@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -36,6 +35,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'links',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,7 +53,10 @@ ROOT_URLCONF = 'letts_me.urls'
 
 WSGI_APPLICATION = 'letts_me.wsgi.application'
 
-
+# TEMPLATES
+TEMPLATE_DIRS = (
+    os.path.abspath(os.path.join(BASE_DIR,'templates')),
+)
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
@@ -79,5 +83,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
+STATICFILES_DIRS= (
+        os.path.abspath("static"),
+        )
 STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
+MEDIA_URL = '/media/'
