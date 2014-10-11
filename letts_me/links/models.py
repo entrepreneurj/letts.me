@@ -13,3 +13,6 @@ class Link(models.Model):
         return self.title
     class Meta:
         ordering = ['-date_submitted']
+
+
+
