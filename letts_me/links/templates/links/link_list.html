@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block main_container %}
+                <header>
+					<h2>Reading Links</h2>
+					<p>A few curious things I have read and found important</p>
+				</header>
+				<div class="row">
+					<div class="12u">
+
+						<!-- Text -->
+							<section class="box">
+                                {% for link in object_list %}
+								<header>
+									<h3>{{ link.title }}</h3>
+									<p><a href="{{ link.url }}">{{ link.url }}</a></p>
+								</header>
+								<p>{{ link.description }}</p>
+								<hr />
+                                {% endfor %}
+							</section>
+
+					</div>
+				</div>
+    {% endblock main_container %}

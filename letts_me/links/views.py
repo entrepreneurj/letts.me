@@ -1,11 +1,13 @@
 from django.shortcuts import render
 
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
+from links.models import Link
 
 class IndexView(TemplateView):
 
     template_name = "index.html"
 
-class LinksIndexView(TemplateView):
-    template_name = "link_index.html"
+class LinksIndexView(ListView):
+    model = Link
+    paginate_by = 5
