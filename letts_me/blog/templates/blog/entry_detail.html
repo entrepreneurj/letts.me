@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block main_container %}
+                <header>
+					<h2>Blog Entry</h2>
+					<p>Like a mini printing press lurking on the net.</p>
+				</header>
+				<div class="row">
+					<div class="12u">
+
+						<!-- Text -->
+							<section class="box">
+								<header>
+									<h3>{{ entry.title }}</h3>
+									<p>{{ entry.published|timesince }}</p>
+								</header>
+	                            {{ entry.text|linebreaks }}</p>
+								<hr />
+                                    <div class="pagination">
+                                        <a  class = "button"
+                                            onclick = "window.history.back()"
+                                        >Back</a>
+                                    </div>
+							</section>
+
+					</div>
+				</div>
+    {% endblock main_container %}

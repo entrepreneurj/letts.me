@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block main_container %}
+                <header>
+					<h2>Blog</h2>
+					<p>'Nuff said.</p>
+				</header>
+				<div class="row">
+					<div class="12u">
+
+						<!-- Text -->
+							<section class="box">
+                                {% for entry in object_list %}
+								<header>
+									<h3><a href="{% url "blog-entry" slug=entry.slug %}">{{ entry.title }}</a></h3>
+									<p>{{ entry.published|timesince }}</p>
+								</header>
+								<p>{{ entry.summary }}</p>
+								<hr />
+                                {% endfor %}
+                                    <div class="pagination">
+                                        <a href="
+                                            {% if page_obj.has_previous %}
+                                            {% url "links-index" page=page_obj.previous_page_number %}
+                                            {% else %}
+                                            #
+                                            {%endif %}"
+                                            class = "button"
+                                        >Previous</a>
+                                        <a href="
+                                            {% if page_obj.has_next %}
+                                            {% url "links-index" page=page_obj.next_page_number %}
+                                            {% else %}
+                                            #
+                                            {%endif %}"
+                                            class = "button"
+                                        >Next</a>
+                                    </div>
+							</section>
+
+					</div>
+				</div>
+    {% endblock main_container %}
