@@ -11,3 +11,5 @@ class IndexView(TemplateView):
 class LinksIndexView(ListView):
     template_name = "link_index.html"
     model = Link
+
+    paginate_by = 5

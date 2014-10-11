@@ -18,6 +18,24 @@
 								<p>{{ link.description }}</p>
 								<hr />
                                 {% endfor %}
+                                    <div class="pagination">
+                                        <a href="
+                                            {% if page_obj.has_previous %}
+                                            {% url "links-index" page=page_obj.previous_page_number %}
+                                            {% else %}
+                                            #
+                                            {%endif %}"
+                                            class = "button"
+                                        >Previous</a>
+                                        <a href="
+                                            {% if page_obj.has_next %}
+                                            {% url "links-index" page=page_obj.next_page_number %}
+                                            {% else %}
+                                            #
+                                            {%endif %}"
+                                            class = "button"
+                                        >Next</a>
+                                    </div>
 							</section>
 
 					</div>
