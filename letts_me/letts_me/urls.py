@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^admin/', include(admin.site.urls)),
      url(r'^$', IndexView.as_view(), name='home'),
-     url(r'links/$', LinksIndexView.as_view(), name='links-index'),
+     url(r'links/(?P<page>[0-9]+)/$', LinksIndexView.as_view(), name='links-index'),
      #url(r'^$', 'letts_me.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
