@@ -7,8 +7,9 @@ from django.conf.urls.static import static
 from django.views.generic import RedirectView
 from django.core.urlresolvers import reverse_lazy
 
-from links.views import IndexView, LinksIndexView
+from links.views import LinksIndexView
 from blog.views import BlogListView, BlogDetailView
+from frontpage.views import IndexView 
 
 urlpatterns = patterns('',
     # Examples:
