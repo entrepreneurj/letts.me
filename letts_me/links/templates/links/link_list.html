@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block main_container %}
+                <header>
+					<h2>Reading Links</h2>
+					<p>A few curious things I have read and found important</p>
+				</header>
+				<div class="row">
+					<div class="12u">
+
+						<!-- Text -->
+							<section class="box">
+                                {% for link in object_list %}
+								<header>
+									<h3>{{ link.title }}</h3>
+									<p><a href="{{ link.url }}">{{ link.url }}</a></p>
+								</header>
+								<p>{{ link.description }}</p>
+								<hr />
+                                {% endfor %}
+                                    <div class="pagination">
+                                        <a href="
+                                            {% if page_obj.has_previous %}
+                                            {% url "links-index" page=page_obj.previous_page_number %}
+                                            {% else %}
+                                            #
+                                            {%endif %}"
+                                            class = "button"
+                                        >Previous</a>
+                                        <a href="
+                                            {% if page_obj.has_next %}
+                                            {% url "links-index" page=page_obj.next_page_number %}
+                                            {% else %}
+                                            #
+                                            {%endif %}"
+                                            class = "button"
+                                        >Next</a>
+                                    </div>
+							</section>
+
+					</div>
+				</div>
+    {% endblock main_container %}

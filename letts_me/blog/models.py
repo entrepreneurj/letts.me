@@ -1,6 +1,16 @@
 from django.db import models
 
 
+class EntryManager(models.Manager):
+
+    use_for_related_fields = True
+
+    def get_queryset(self):
+        return super(EntryManager, self).get_queryset().filter(draft = False)
+    
+    def latest(self, **kwargs):
+        return self.get_queryset()[0]
+
 # Blog Entry
 class Entry(models.Model):
 
@@ -8,8 +18,11 @@ class Entry(models.Model):
     slug = models.SlugField()
     text = models.TextField()
     draft = models.BooleanField(default = True)
-    published = models.DateTimeField(auto_now_add = True)
-    
+    publish_date = models.DateTimeField(auto_now_add = True)
+
+    objects = models.Manager()
+    published = EntryManager()
+
     def summary(self):
         return "{0}...".format(' '.join(self.text.split()[:50]))
 
@@ -17,4 +30,4 @@ class Entry(models.Model):
         return self.title
 
     class Meta:
-        ordering = ['-published']
+        ordering = ['-publish_date']

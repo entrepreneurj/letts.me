@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block body_class %}landing{% endblock body_class %}
+        {% block banner %}
+		<!-- Banner -->
+			<section id="banner">
+				<h2>Letts.me</h2>
+				<p>All things Letts.</p>
+			</section>
+        {% endblock banner %} 
+        {% block main_container %}
+				<section class="box special">
+					<header class="major">
+						<h2>Blog. Contact Portal.
+						<br />
+						Portfolio. Reading Archive.</h2>
+					</header>
+				</section>
+					
+				<div class="row">
+					<div class="6u">
+
+						<section class="box special">
+							<span class="image featured" style="background-color:#444;"><h3 style="color:#fff;">Latest blog post</h3></span>
+							<h3>{{ blog.title}}</h3>
+							<p>{{ blog.summary }}</p>
+							<ul class="actions">
+								<li><a href="{% url "blog-entry" slug=blog.slug %}" class="button alt">Read More</a></li>
+							</ul>
+						</section>
+						
+					</div>
+					<div class="6u">
+
+						<section class="box special">
+							<span class="image featured" style="background-color:#444;"><h3 style="color:#fff;">Last Read</h3></span>
+							<h4>{{ link.title }}</h4>
+							<p><a href="{{ link.url }}">{{ link.url }}</a></p>
+							<span class="image featured" style="background-color:#444;"><h3 style="color:#fff;"><a href="https://github.com/entrepreneurj" class="icon fa-github"><span class="label">Github</span></a> Latest on GitHub</h3></span>
+							<h4><a id="github-repo" href="#">[Commit]</a></h4>
+                            <p id="github-commit-msg"><i class="icon fa-upload"><span class="label">Github</span></i> <strong id="github-hash"></strong> </p>
+						</section>
+
+					</div>
+				</div>
+
+			</section>
+			{% endblock main_container %}
+
+            {% block js_bottom %}
+            <script>
+            $( document ).ready(function() {
+                $.get(
+                url="https://api.github.com/users/entrepreneurj/events/public",
+                dataType="json",
+                success = function(data){
+                    $(data).each(function(index,data){
+                        if (data["type"]=="PushEvent"){
+                            var repoName = data["repo"]["name"];
+                            var hash = data["payload"]["head"];
+                            var hash_stub = hash.substr(hash.length-6);
+                            var commitMessage = null;
+                            // find last commit 
+                            $(data["payload"]["commits"]).each(function(index, commit){
+                                if (commit["sha"]==hash)
+                                    {commitMessage = unescape(commit["message"]);}
+                            });
+                            $("#github-repo").text("[Commit] "+ repoName);
+                            $("#github-repo").attr("href","https://www.github.com/" + repoName);
+                            $("#github-hash").text(hash_stub+":");
+                            $("#github-commit-msg").append(commitMessage);
+                            return false;
+                        }
+                    })
+                });
+            });
+            </script>
+            {% endblock js_bottom %}

@@ -13,7 +13,7 @@
                                 {% for entry in object_list %}
 								<header>
 									<h3><a href="{% url "blog-entry" slug=entry.slug %}">{{ entry.title }}</a></h3>
-									<p>{{ entry.published|timesince }}</p>
+									<p>{{ entry.publish_date|timesince }}</p>
 								</header>
 								<p>{{ entry.summary }}</p>
 								<hr />
