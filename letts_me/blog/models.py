@@ -1,5 +1,7 @@
 from django.db import models
 
+
+# Blog Entry
 class Entry(models.Model):
 
     title = models.CharField(max_length=100)

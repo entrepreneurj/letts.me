@@ -18,7 +18,7 @@ urlpatterns = patterns('',
      url(r'links/(?P<page>[0-9]+)/$', LinksIndexView.as_view(), name='links-index'),
      url(r'blog/$', RedirectView.as_view(url=reverse_lazy('blog-index', args=[1])) ),
      url(r'blog/(?P<page>[0-9]+)/$', BlogListView.as_view(), name='blog-index'),
-     url(r'blog/(?P<slug>[a-zA-Z0-9-]+)/$', BlogDetailView.as_view(), name='blog-entry'),
+     url(r'blog/(?P<slug>[a-zA-Z0-9-_]+)/$', BlogDetailView.as_view(), name='blog-entry'),
      #url(r'^$', 'letts_me.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
