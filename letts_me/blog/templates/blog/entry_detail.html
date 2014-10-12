@@ -16,7 +16,19 @@
 								</header>
 	                            {{ entry.text|linebreaks }}</p>
 								<hr />
-                                    <div class="pagination">
+                                {% if entry.link_set.all %}
+                                {% for link in entry.link_set.all %}
+                                <div class="6u">
+                                <header>
+                                <h4>{{ link.title }}</h4>
+                                <p>{{ link.description }}</p>
+                                <p><a href="{{ link.url }}">{{link.url}}</a></p>
+                                </header>
+                                </div> 
+                                {% endfor %}
+                                <hr />
+                                {% endif %}
+                                <div class="pagination">
                                         <a  class = "button"
                                             onclick = "window.history.back()"
                                         >Back</a>

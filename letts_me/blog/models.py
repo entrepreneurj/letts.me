@@ -9,7 +9,6 @@ class Entry(models.Model):
     text = models.TextField()
     draft = models.BooleanField(default = True)
     published = models.DateTimeField(auto_now_add = True)
-    
     def summary(self):
         return "{0}...".format(' '.join(self.text.split()[:50]))
 
