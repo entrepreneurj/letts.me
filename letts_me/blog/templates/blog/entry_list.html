@@ -15,7 +15,7 @@
 									<h3><a href="{% url "blog-entry" slug=entry.slug %}">{{ entry.title }}</a></h3>
 									<p>{{ entry.publish_date|timesince }}</p>
 								</header>
-								<p>{{ entry.summary }}</p>
+								<p>{{ entry.summary|striptags }}</p>
 								<hr />
                                 {% endfor %}
                                     <div class="pagination">

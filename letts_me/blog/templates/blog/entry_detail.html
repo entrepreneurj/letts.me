@@ -9,12 +9,15 @@
 					<div class="12u">
 						<!-- Text -->
 							<section class="box">
-								<header>
+								<article headline="{{entry.title}}" datePublished="{{ entry.publish_date|date:"c" }}" itemtype="http://schema.org/Article">
+                                <header>
 									<h3>{{ entry.title }}</h3>
 									<p>{{ entry.publish_date|timesince }}</p>
 								</header>
-	                            {{ entry.text|linebreaks }}</p>
-								<hr />
+	                             {% autoescape off %}
+                                {{ entry.text|linebreaks }}</p>
+								{% endautoescape %}
+                                <hr />
                                 {% if entry.link_set.all %}
                                 {% for link in entry.link_set.all %}
                                 <div class="6u">
@@ -25,6 +28,7 @@
                                 </header>
                                 </div> 
                                 {% endfor %}
+                                </article>
                                 <hr />
                                 {% endif %}
                                 <div class="pagination">

@@ -23,7 +23,7 @@
 						<section class="box special">
 							<span class="image featured" style="background-color:#444;"><h3 style="color:#fff;">Latest blog post</h3></span>
 							<h3>{{ blog.title}}</h3>
-							<p>{{ blog.summary }}</p>
+							<p>{{ blog.summary|striptags }}</p>
 							<ul class="actions">
 								<li><a href="{% url "blog-entry" slug=blog.slug %}" class="button alt">Read More</a></li>
 							</ul>

@@ -1,5 +1,6 @@
 from django.db import models
 
+from frontpage.models import HasCategory
 
 class EntryManager(models.Manager):
 
@@ -12,7 +13,7 @@ class EntryManager(models.Manager):
         return self.get_queryset()[0]
 
 # Blog Entry
-class Entry(models.Model):
+class Entry(HasCategory):
 
     title = models.CharField(max_length=100)
     slug = models.SlugField()
@@ -30,4 +31,5 @@ class Entry(models.Model):
         return self.title
 
     class Meta:
+        verbose_name_plural = "entries"
         ordering = ['-publish_date']
