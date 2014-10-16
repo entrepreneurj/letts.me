@@ -8,6 +8,11 @@ class LinksInline(admin.TabularInline):
 class BlogAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug" : ("title",)}
     inlines = [LinksInline]
-
+    
+    class Media:
+        js = [
+        '/static/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js',
+        '/static/js/tinymce_setup.js',
+	]    	
 
 admin.site.register(Entry, BlogAdmin)
