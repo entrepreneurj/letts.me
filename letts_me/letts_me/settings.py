@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     'links',
     'blog',
     'frontpage',
+    'projects',
+    'fontawesome',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -102,3 +104,7 @@ STATICFILES_DIRS= (
 STATIC_URL = '/static/'
 #STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 MEDIA_URL = '/media/'
+
+# FONTAWESOME
+
+FONTAWESOME_CSS_URL = "static/alpha/css/font-awesome.min.css"
