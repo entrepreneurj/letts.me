@@ -2,4 +2,6 @@ from django.contrib import admin
 
 from projects.models import Project
 
-admin.site.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug" : ("name",)}
+admin.site.register(Project, ProjectAdmin)

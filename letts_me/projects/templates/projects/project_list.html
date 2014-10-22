@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block main_container %}
+                <header>
+					<h2>Projects</h2>
+				</header>
+				<div class="row">
+                    <div class="12u">
+                        <section class="special"><div class="pagination">{% include "partials/pagination.html" %}</div></section>
+                        <br />
+                    </div>
+                    {% for project in object_list %}
+					<div class="4u">
+                        <section class="box special">
+                        <a href="{% url "project" slug=project.slug %}"><span class="icon major accent1 fa-{{project.repo_icon}}"></span></a>
+                            <header>
+                                <h3><a href="{% url "project" slug=project.slug %}">{{ project.name}}</a></h3>
+                            {% for cat in project.categories.all %}
+                                <code>{{ cat }}</code>
+                            {% endfor %}
+                                <p>{{ project.description }}</p>
+                            <a class="button special" href="{% url "project" slug=project.slug %}">detail</a>
+                            {% if project.repo_url %}<a class="button" href="{{project.repo_url}}">code</a>{% endif %}
+                            {% if project.demo_url %}<a class="button" href="{{ project.demo_url }}">demo</a>{% endif %}
+                            </header>
+                        </section>
+                    </div>
+                    {% endfor %}
+                    </div>
+                    <section class="special"><div class="pagination">{% include "partials/pagination.html" %}</div></section>
+				</div>
+    {% endblock main_container %}

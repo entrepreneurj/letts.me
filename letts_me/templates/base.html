@@ -36,12 +36,7 @@
 						<li><a href="{% url "home" %}">Home</a></li>
 						<li><a href="{% url "blog-index" page=1 %}">Blog</a></li>
 						<li>
-							<a href="" class="icon fa-angle-down">Projects</a>
-							<ul>
-								<li><a href="generic.html">Generic</a></li>
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="elements.html">Elements</a></li>
-							</ul>
+							<a href="{% url "projects" %}">Projects</a>
 						</li>
 						<li><a href="{% url "links-index" page=1 %}">Reading</a></li>
 					</ul>
