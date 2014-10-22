@@ -8,7 +8,7 @@ class Category(models.Model):
     parent = models.ForeignKey("Category", blank = True, null = True)
     
     def __str__(self):
-        return "#"+ ( (self.parent.name + ".") if self.parent else "")  +self.name
+        return( (str(self.parent) + ".") if self.parent else "#")  +self.name
     class Meta:
         verbose_name_plural = "categories"
 
