@@ -10,9 +10,9 @@ class Project(HasCategory):
 
     name = models.CharField(max_length=50)
     slug = models.SlugField(null = True)
-    repo_url = models.URLField(unique = True, blank = True, null=True)
+    repo_url = models.URLField(blank = True, null=True)
     repo_icon = IconField()
-    demo_url = models.URLField(unique = True, blank = True, null=True)
+    demo_url = models.URLField( blank = True, null=True)
     description = models.CharField(blank = True, max_length = 70)
     summary = models.TextField(blank=True, null = True)
     completion = models.IntegerField(default = 0)
