@@ -1,6 +1,9 @@
 Django==1.7
 PyYAML==3.11
 argparse==1.2.1
+django-appconf==0.6
+django-compressor==1.4
 django-fontawesome==0.1
 django-grappelli==2.6.1
+six==1.8.0
 wsgiref==0.1.2

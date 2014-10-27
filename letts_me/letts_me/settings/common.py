@@ -29,7 +29,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'compressor',
     'links',
     'blog',
     'frontpage',
@@ -84,9 +84,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
+COMPRESS_ENABLED = True
+
 STATICFILES_DIRS= (
         os.path.abspath(os.path.join(BASE_DIR,"static") ),
         )
+STATICFILES_FINDERS = ( 'compressor.finders.CompressorFinder',)
+
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 

@@ -9,6 +9,9 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
+INSTALLED_APPS +=('django.contrib.staticfiles',)
+STATICFILES_FINDERS += ('django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',)
 
 # Application definition
 
