@@ -84,7 +84,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-COMPRESS_ENABLED = True
 
 STATICFILES_DIRS= (
         os.path.abspath(os.path.join(BASE_DIR,"static") ),
@@ -93,6 +92,18 @@ STATICFILES_FINDERS = ( 'compressor.finders.CompressorFinder',)
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
+# Static File Optimization
+
+COMPRESS_ENABLED = True
+
+HTML_MINIFY = True
+MIDDLEWARE_CLASSES += (
+    'htmlmin.middleware.HtmlMinifyMiddleware',
+    'htmlmin.middleware.MarkRequestMiddleware',
+)
+KEEP_COMMENTS_ON_MINIFYING = True
+
 
 # FONTAWESOME
 
