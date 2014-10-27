@@ -10,21 +10,15 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6u9bdq*u1+rz+n#f1r4y&e)v)y*p#cat+*a4t6p*!%r0s$1!m3'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
-
+ADMINS = (
+    ("Admin", "example@example.com"),
+    )
 
 # Application definition
 
@@ -72,15 +66,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 TEMPLATE_CONTEXT_PROCESSORS += ("django.core.context_processors.request",)
 
-# Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -99,10 +85,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 STATICFILES_DIRS= (
-        os.path.abspath("static"),
+        os.path.abspath(os.path.join(BASE_DIR,"static") ),
         )
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 MEDIA_URL = '/media/'
 
 # FONTAWESOME
