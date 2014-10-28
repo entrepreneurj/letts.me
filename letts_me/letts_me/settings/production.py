@@ -11,7 +11,14 @@ DEBUG = TEMPLATE_DEBUG = False
 
 # Application definition
 
-#INSTALLED_APPS += ()
+INSTALLED_APPS += (
+    # For reporting errors to Sentry (getsentry.com)
+    'raven.contrib.django.raven_compat',
+)
+
+RAVEN_CONFIG = {
+        'dsn': 'OVERRIDE_IN_LOCAL_PY',
+}
 
 #MIDDLEWARE_CLASSES += ()
 
