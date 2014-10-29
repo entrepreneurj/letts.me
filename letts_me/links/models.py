@@ -5,9 +5,14 @@ from blog.models import Entry
 from frontpage.models import HasCategory
 
 class LinkManager(models.Manager):
+    
+    use_for_related_fields = True
 
     def latest(self):
         return self.get_queryset()[0]
+
+    def get_queryset(self):
+        return super(LinkManager, self).get_queryset().filter(draft = False)
 
 class Link(HasCategory):
 
@@ -16,7 +21,7 @@ class Link(HasCategory):
     url = models.URLField(unique = True)
     date_submitted = models.DateTimeField(auto_now_add = True)
     blog_entry = models.ForeignKey(Entry, blank = True, null = True)    
-    
+    draft = models.BooleanField(default = False)
     objects = models.Manager()
     link_manager = LinkManager()
     
