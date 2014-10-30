@@ -9,6 +9,8 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
+COMPRESS_ENABLED = False
+
 # Application definition
 
 #INSTALLED_APPS += ()
