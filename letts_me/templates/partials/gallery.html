@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="gallery 12u">
+        <header>
+            <h3>{{ gallery.title }}</h3>
+            <p>{{ galerry.description }}</p>
+            <br>
+        </header>
+        <div class="row">
+            {% for img in gallery.image_set.all %}
+            <span class="4u">
+            <img src="{{ img.img_file.url }}" />
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+.gallery .row  {
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+.gallery .row span {
+    display:inline-block;
+    float:none;
+}
+.gallery .row img {
+    width:100%;
+}
