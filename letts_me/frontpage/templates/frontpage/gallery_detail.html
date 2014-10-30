@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block main_container %}
+                <header>
+					<h2>Gallery</h2>
+					<p>Nothing pithy to say this time</p>
+				</header>
+				<div class="row">
+					<div class="12u">
+						<!-- Text -->
+							<section class="box gallery">
+								<article headline="{{gallery.title }}"  itemtype="http://schema.org/Article">
+                                <header>
+									<h3>{{ gallery.title }}</h3>
+									<p>{{ gallery.description }}</p>
+                                    <p>published: {{ gallery.publish_date|date }}</p>
+                                    <a  class = "button" onclick = "window.history.back()">Back</a>
+								</header>
+                                <br>
+                                <section class ="row">
+                                {% for img in gallery.image_set.all %}
+                                    <span class="4u">
+                                    <img src="{{ img.img_file.url }}" />
+                                    <p>{{ img.title }}</p>
+                                    </span>
+                                {% endfor %}
+                                </section>
+                                <hr />
+                                <a  class = "button" onclick = "window.history.back()">Back</a>
+							</section>
+					</div>
+				</div>
+    {% endblock main_container %}

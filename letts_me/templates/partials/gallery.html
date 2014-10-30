@@ -1,7 +1,7 @@
 <div class="row">
     <div class="gallery 12u">
         <header>
-            <h3>{{ gallery.title }}</h3>
+            <h4><a href="{% url "gallery" slug=gallery.slug %}">{{ gallery.title }}</a></h4>
             <p>{{ gallery.description }}</p>
             <br>
         </header>

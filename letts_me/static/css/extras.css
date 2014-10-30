@@ -1,9 +1,10 @@
-.gallery .row  {
+.gallery div.row  {
+    // div.row Only affects gallery in project detail view
     overflow-x: scroll;
     overflow-y: none;
     white-space: nowrap;
 }
-.gallery .row span {
+.gallery div.row span {
     display:inline-block;
     float:none;
 }
