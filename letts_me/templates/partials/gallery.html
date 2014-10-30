@@ -3,6 +3,7 @@
         <header>
             <h4><a href="{% url "gallery" slug=gallery.slug %}">{{ gallery.title }}</a></h4>
             <p>{{ gallery.description }}</p>
+            {% if user.is_authenticated %}<br /><a class="button special" href="{% url 'admin:frontpage_gallery_change' gallery.pk %}">Edit</a>{% endif %}
             <br>
         </header>
         <div class="row">

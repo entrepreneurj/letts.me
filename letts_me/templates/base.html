@@ -47,6 +47,7 @@
 							<a href="{% url "projects" %}">Projects</a>
 						</li>
 						<li><a href="{% url "links-index" page=1 %}">Reading</a></li>
+						{% if user.is_authenticated %}<li><a class="button" href="/admin">Admin</a></li>{% endif %}
 					</ul>
 				</nav>
 			</header>

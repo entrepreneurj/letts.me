@@ -3,6 +3,7 @@
     {% block main_container %}
                 <header>
 					<h2>Projects</h2>
+                    {% if user.is_authenticated %}<br /><a class="button special" href="{% url 'admin:projects_project_changelist' %}">Edit</a>{% endif %}
 				</header>
 				<div class="row">
                     <div class="12u">

@@ -4,7 +4,8 @@
                 <header>
 					<h2>Reading Links</h2>
 					<p>A few curious things I have read and found important</p>
-				</header>
+				    {% if user.is_authenticated %}<br /><a class="button special" href="{% url 'admin:links_link_changelist' %}">Edit</a>{% endif %}
+                </header>
 				<div class="row">
 					<div class="12u">
 

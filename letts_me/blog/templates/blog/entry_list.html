@@ -4,6 +4,7 @@
                 <header>
 					<h2>Blog</h2>
 					<p>'Nuff said.</p>
+                    {% if user.is_authenticated %}<br /><a class="button special" href="{% url 'admin:blog_entry_changelist' %}">Edit</a>{% endif %}
 				</header>
 				<div class="row">
 					<div class="12u">
