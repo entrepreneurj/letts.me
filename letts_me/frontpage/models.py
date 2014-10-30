@@ -26,7 +26,7 @@ class Gallery(models.Model):
 
     title = models.CharField(max_length = 50)
     publish_date = models.DateTimeField(auto_now_add = True)
-    slug = models.SlugField(null=True)
+    slug = models.SlugField()
     def __str__(self):
         return self.title
     class Meta:
