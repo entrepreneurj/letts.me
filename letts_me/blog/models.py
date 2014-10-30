@@ -1,6 +1,6 @@
 from django.db import models
 
-from frontpage.models import HasCategory
+from frontpage.models import HasCategory, HasGallery
 
 class EntryManager(models.Manager):
 
@@ -13,14 +13,13 @@ class EntryManager(models.Manager):
         return self.get_queryset()[0]
 
 # Blog Entry
-class Entry(HasCategory):
+class Entry(HasCategory, HasGallery):
 
     title = models.CharField(max_length=100)
     slug = models.SlugField()
     text = models.TextField()
     draft = models.BooleanField(default = True)
     publish_date = models.DateTimeField(auto_now_add = True)
-
     objects = models.Manager()
     published = EntryManager()
 
