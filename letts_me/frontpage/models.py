@@ -10,7 +10,7 @@ class Category(models.Model):
     parent = models.ForeignKey("Category", blank = True, null = True)
     
     def __str__(self):
-        return( (str(self.parent) + ".") if self.parent else "#")  +self.name
+        return ((str(self.parent) + ".") if self.parent else "#")  +self.name
     class Meta:
         verbose_name_plural = "categories"
 
@@ -26,7 +26,7 @@ class Gallery(models.Model):
 
     title = models.CharField(max_length = 50)
     publish_date = models.DateTimeField(auto_now_add = True)
-
+    slug = models.SlugField(null=True)
     def __str__(self):
         return self.title
     class Meta:

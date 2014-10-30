@@ -9,6 +9,7 @@ class ImageInline(admin.TabularInline):
 
 class GalleryAdmin(admin.ModelAdmin):
     inlines = [ImageInline]
+    prepopulated_fields = {"slug" : ("title",)}
 
 admin.site.register(Category)
 
