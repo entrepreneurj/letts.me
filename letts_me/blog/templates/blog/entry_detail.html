@@ -31,6 +31,9 @@
                                 </article>
                                 <hr />
                                 {% endif %}
+                                {% if entry.gallery %}
+                                {% include 'partials/gallery.html' with gallery=entry.gallery %}
+                                {% endif %}
                                 <div class="pagination">
                                         <a  class = "button"
                                             onclick = "window.history.back()"
