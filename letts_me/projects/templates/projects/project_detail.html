@@ -24,6 +24,10 @@
                                 {{ project.summary|linebreaks }}</p>
 								{% endautoescape %}
                                 <hr />
+                                {% if project.gallery %}
+                                {% include "partials/gallery.html" with gallery=project.gallery %}
+                                <hr />
+                                {% endif %}
                                 {% if entry.link_set.all %}
                                 {% for link in entry.link_set.all %}
                                 <div class="6u">

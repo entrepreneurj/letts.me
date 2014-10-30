@@ -3,10 +3,10 @@ from django.template.defaultfilters import slugify
 
 from fontawesome.fields import IconField
 
-from frontpage.models import HasCategory
+from frontpage.models import HasCategory, HasGallery
     
 
-class Project(HasCategory):
+class Project(HasCategory, HasGallery):
 
     name = models.CharField(max_length=50)
     slug = models.SlugField(null = True)

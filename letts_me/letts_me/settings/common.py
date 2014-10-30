@@ -98,7 +98,6 @@ MEDIA_URL = '/media/'
 
 # Static File Optimization
 
-COMPRESS_ENABLED = True
 
 HTML_MINIFY = True
 MIDDLEWARE_CLASSES += (

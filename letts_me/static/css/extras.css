@@ -1,0 +1,15 @@
+.gallery div.row  {
+    // div.row Only affects gallery in project detail view
+    overflow-x: scroll;
+    overflow-y: none;
+    white-space: nowrap;
+}
+.gallery div.row span {
+    display:inline-block;
+    float:none;
+}
+.gallery .row img {
+    max-width:100%;
+    max-height: 350px;
+    
+}

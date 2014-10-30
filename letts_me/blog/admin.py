@@ -2,9 +2,12 @@ from django.contrib import admin
 
 from blog.models import Entry
 from links.models import Link
+from frontpage.models import Gallery
 
 class LinksInline(admin.TabularInline):
     model = Link
+    extra = 1
+
 class BlogAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug" : ("title",)}
     inlines = [LinksInline]

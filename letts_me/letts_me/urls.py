@@ -9,7 +9,7 @@ from django.core.urlresolvers import reverse_lazy
 
 from links.views import LinksIndexView
 from blog.views import BlogListView, BlogDetailView
-from frontpage.views import IndexView 
+from frontpage.views import IndexView, GalleryDetailView
 from projects.views import ProjectListView, ProjectDetailView
 urlpatterns = patterns('',
     # Examples:
@@ -24,7 +24,12 @@ urlpatterns = patterns('',
     url(r'projects/$', RedirectView.as_view(url=reverse_lazy('project-index', args=[1])), name='projects' ),
     url(r'projects/(?P<page>[0-9]+)/$', ProjectListView.as_view(), name='project-index'),
     url(r'projects/(?P<slug>[a-zA-Z0-9-_]+)/$', ProjectDetailView.as_view(), name='project'),
+    url(r'gallery/(?P<slug>[a-zA-Z0-9-_]+)/$', GalleryDetailView.as_view(), name='gallery'),
      #url(r'^$', 'letts_me.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-) + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+) 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

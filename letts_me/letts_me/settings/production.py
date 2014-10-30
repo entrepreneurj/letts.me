@@ -7,7 +7,7 @@ from .common import *
 
 DEBUG = TEMPLATE_DEBUG = False
 
-
+COMPRESS_ENABLED = True
 
 # Application definition
 
