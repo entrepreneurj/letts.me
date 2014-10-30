@@ -8,7 +8,7 @@
 -->
 <html>
 	<head>
-		<title>Letts.me</title>
+		<title>{{ site_title }}</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -38,7 +38,7 @@
 
 		<!-- Header -->
 			<header id="header" class="">
-				<h1><a href="{% url "home" %}">Letts.me</a></h1>
+				<h1><a href="{% url "home" %}">{{ site_title }}</a></h1>
 
 				<nav id="nav">
 					<ul>
@@ -134,7 +134,7 @@
 					<li><a href="https://github.com/entrepreneurj" class="icon fa-github"><span class="label">Github</span></a></li>
 				</ul>
 				<ul class="copyright">
-					<li>&copy; Letts.me. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					<li>&copy; {{ site_title }}. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 				</ul>
                 {% endblock social_media %}
 			</footer>

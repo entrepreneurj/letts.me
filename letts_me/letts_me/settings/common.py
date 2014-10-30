@@ -49,7 +49,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'letts_me.urls'
-
+SITE_TITLE = 'Personal Website'
 WSGI_APPLICATION = 'letts_me.wsgi.application'
 
 # TEMPLATES
@@ -65,7 +65,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
 )
-TEMPLATE_CONTEXT_PROCESSORS += ("django.core.context_processors.request",)
+TEMPLATE_CONTEXT_PROCESSORS += (
+    "django.core.context_processors.request",
+    "letts_me.context_processors.site_title",    
+)
 
 
 
