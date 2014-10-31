@@ -129,9 +129,11 @@
 			<footer id="footer">
                 {% block social_media %}
 				<ul class="icons">
-					<li><a href="https://www.twitter.com/jal08" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="http://instagram.com/blogginglife" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="https://github.com/entrepreneurj" class="icon fa-github"><span class="label">Github</span></a></li>
+                    
+					{% if twitter %}<li><a href="https://www.twitter.com/{{ twitter }}" class="icon fa-twitter"><span class="label">Twitter</span></a></li>{% endif %}
+					{% if instagram %}<li><a href="http://instagram.com/{{ instagram }}" class="icon fa-instagram"><span class="label">Instagram</span></a></li>{% endif %}
+					{% if github %}<li><a href="https://github.com/{{ github }}" class="icon fa-github"><span class="label">Github</span></a></li>{% endif %}
+					{% if facebook %}<li><a href="https://facebook.com/{{ facebook }}" class="icon fa-facebook"><span class="label">Facebook</span></a></li>{% endif %}
 				</ul>
 				<ul class="copyright">
 					<li>&copy; {{ site_title }}. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>

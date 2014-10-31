@@ -49,7 +49,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'letts_me.urls'
-SITE_TITLE = 'Personal Website'
 WSGI_APPLICATION = 'letts_me.wsgi.application'
 
 # TEMPLATES
@@ -68,6 +67,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 TEMPLATE_CONTEXT_PROCESSORS += (
     "django.core.context_processors.request",
     "letts_me.context_processors.site_title",    
+    "letts_me.context_processors.social_media",    
 )
 
 
@@ -109,6 +109,12 @@ MIDDLEWARE_CLASSES += (
 )
 KEEP_COMMENTS_ON_MINIFYING = True
 
+# SITE_TEMPLATE_CONSTANTS
+SITE_TITLE = 'Personal Website'
+GITHUB_PROFILE = None
+INSTAGRAM_PROFILE = None
+TWITTER_PROFILE = None
+FACEBOOK_PROFILE = None
 
 # FONTAWESOME
 
