@@ -3,21 +3,33 @@ from django.db import models
 from hashlib import md5
 from datetime import datetime
 
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+
 class Category(models.Model):
 
 
     name = models.CharField(max_length = 20)
     parent = models.ForeignKey("Category", blank = True, null = True)
-    
+    ancestor = models.ForeignKey("Category", blank = True, null = True, related_name="descendent")
+
     def __str__(self):
         return ((str(self.parent) + ".") if self.parent else "#")  +self.name
     
     def get_root(self):
         # returns the root category, even if self
-        return parent.get_root() if parent else self.name
+        return self.parent.get_root() if self.parent else self
 
     class Meta:
         verbose_name_plural = "categories"
+
+@receiver(pre_save, sender=Category)
+def category_pre_save(sender, **kwargs):
+
+    # Update's cateegory ancestor with each save
+    instance = kwargs["instance"]
+    instance.ancestor = instance.get_root()
+
 
 class HasCategory(models.Model):
 
