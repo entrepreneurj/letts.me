@@ -29,19 +29,7 @@
                                 {% include "partials/gallery.html" with gallery=project.gallery %}
                                 <hr />
                                 {% endif %}
-                                {% if entry.link_set.all %}
-                                {% for link in entry.link_set.all %}
-                                <div class="6u">
-                                <header>
-                                <h4>{{ link.title }}</h4>
-                                <p>{{ link.description }}</p>
-                                <p><a href="{{ link.url }}">{{link.url}}</a></p>
-                                </header>
-                                </div> 
-                                {% endfor %}
                                 </article>
-                                <hr />
-                                {% endif %}
                                 <div class="pagination">
                                         <a  class = "button"
                                             onclick = "window.history.back()"
