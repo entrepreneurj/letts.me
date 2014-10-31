@@ -43,7 +43,14 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="{% url "home" %}">Home</a></li>
-						<li><a href="{% url "blog-index" page=1 %}">Blog</a></li>
+						<li>
+                            <a class="icon fa-angle-down" href="{% url "all-index" page=1 %}">Posts</a>
+                            <ul>
+							    <li><a href="{% url "blog-index" page=1 %}">Blog</a></li>
+							    <li><a href="{% url "software-index" page=1 %}">Software</a></li>
+							    <li><a href="{% url "reviews-index" page=1 %}">Reviews</a></li>
+                            </ul>
+                        </li>
 						<li>
 							<a href="{% url "projects" %}">Projects</a>
 						</li>
