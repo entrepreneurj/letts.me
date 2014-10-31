@@ -16,10 +16,12 @@ class Project(HasCategory, HasGallery):
     description = models.CharField(blank = True, max_length = 70)
     summary = models.TextField(blank=True, null = True)
     completion = models.IntegerField(default = 0)
+    FEAT = '0'
     HI = '1'
     MED = '2'
     LO = '3'
     IMPORTANCE_CHOICES = (
+        (FEAT, 'Featured'),
         (HI, 'Most Important'),
         (MED, 'Average Importance'),
         (LO, 'Least Important')
