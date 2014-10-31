@@ -2,8 +2,17 @@
 {% load staticfiles %}
     {% block main_container %}
                 <header>
-					<h2>Blog</h2>
+					<h2>{{ blog_page_title }}</h2>
 					<p>'Nuff said.</p>
+                    <section>
+                        <header>
+                        <h5>Post filter:</h5>
+                        </header>
+                        <a class="button alt small" href="{% url "all-index" page=1 %}">All</a>
+                        <a class="button alt small" href="{% url "blog-index" page=1 %}">Blog</a>
+                        <a class="button alt small" href="{% url "software-index" page=1 %}">Software</a>
+                        <a class="button alt small" href="{% url "reviews-index" page=1 %}">Reviews</a>
+                    </section>
                     {% if user.is_authenticated %}<br /><a class="button special" href="{% url 'admin:blog_entry_changelist' %}">Edit</a>{% endif %}
 				</header>
 				<div class="row">
