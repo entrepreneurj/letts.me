@@ -11,6 +11,11 @@ class Category(models.Model):
     
     def __str__(self):
         return ((str(self.parent) + ".") if self.parent else "#")  +self.name
+    
+    def get_root(self):
+        # returns the root category, even if self
+        return parent.get_root() if parent else self.name
+
     class Meta:
         verbose_name_plural = "categories"
 
