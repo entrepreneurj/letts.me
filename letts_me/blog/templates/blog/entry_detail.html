@@ -16,7 +16,7 @@
 									<p>{{ entry.publish_date|timesince }}</p>
 								</header>
 	                             {% autoescape off %}
-                                {{ entry.text|linebreaks }}</p>
+                                {{ entry.text }}
 								{% endautoescape %}
                                 <hr />
                                 {% if entry.link_set.all %}
