@@ -69,7 +69,12 @@
                             $("#github-hash").text(hash_stub+":");
                             $("#github-commit-msg").append(commitMessage);
                             return false;
-                        }
+                        } else if (data["type"] == "WatchEvent"){
+			   var repoName = data["repo"]["name"];
+			   $("#github-repo").text("[Starred]" + repoName);
+			   $("#github-repo").attr("href", "https://www.github.com/" + repoName);
+			   return false;	
+			}
                     })
                 });
             });
