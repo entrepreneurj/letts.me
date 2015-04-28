@@ -20,7 +20,6 @@ urlpatterns = patterns('',
     url(r'links/(?P<page>[0-9]+)/$', LinksIndexView.as_view(), name='links-index'),
     url(r'posts/$', RedirectView.as_view(url=reverse_lazy('all-index', args=[1])) ),
     url(r'posts/all/(?P<page>[0-9]+)/$', AllBlogListView.as_view(), name='all-index'),
-    url(r'blog/$', RedirectView.as_view(url=reverse_lazy('blog-index', args=[1])) ),
     url(r'posts/blog/(?P<page>[0-9]+)/$', BlogBlogListView.as_view(), name='blog-index'),
     url(r'posts/post/(?P<slug>[a-zA-Z0-9-_]+)/$', BlogDetailView.as_view(), name='blog-entry'),
     url(r'software/$', RedirectView.as_view(url=reverse_lazy('software-index', args=[1])) ),
@@ -33,6 +32,10 @@ urlpatterns = patterns('',
     url(r'gallery/(?P<slug>[a-zA-Z0-9-_]+)/$', GalleryDetailView.as_view(), name='gallery'),
      #url(r'^$', 'letts_me.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
+    
+    # Historic redirects
+    url(r'blog/$', RedirectView.as_view(url=reverse_lazy('blog-index', args=[1])) ),
+    url(r'blog/(?P<slug>[a-zA-Z0-9-_]+)/$', BlogDetailView.as_view(), name='blog-entry'),
 
 ) 
 
