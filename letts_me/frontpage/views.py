@@ -13,7 +13,8 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
 
         context = super(IndexView, self).get_context_data(**kwargs)
-        context["blog"] = Entry.published.latest()
+        context["blog_post"] = Entry.published.filter(categories__ancestor__name="blog")[0]
+        context["software_post"] = Entry.published.filter(categories__ancestor__name="software")[0]
         context["link"] = Link.link_manager.latest()
         return context
 

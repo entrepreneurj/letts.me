@@ -25,6 +25,9 @@ class Entry(HasCategory, HasGallery):
 
     def summary(self):
         return "{0}...".format(' '.join(self.text.split()[:50]))
+    
+    def snippet(self):
+        return "{0}...".format(' '.join(self.text.split()[:20]))
 
     def __str__(self):
         return self.title

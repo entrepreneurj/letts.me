@@ -20,11 +20,13 @@
 					<div class="6u">
 
 						<section class="box special">
-							<span class="image featured" style="background-color:#444;"><h3 style="color:#fff;">Latest blog post</h3></span>
-							<h3>{{ blog.title}}</h3>
-							<p>{{ blog.summary|striptags }}</p>
+							<span class="image featured" style="background-color:#444;"><h3 style="color:#fff;">Latest blog posts</h3></span>
+                            <h4>Blog: <a href="{% url "blog-entry" slug=blog_post.slug %}">{{ blog_post.title }}</a></h4>
+							<p>{{ blog_post.snippet|striptags }}</p>
+                            <h4>Software: <a href="{% url "blog-entry" slug=software_post.slug %}">{{ software_post.title }}</a></h4>
+							<p>{{ software_post.snippet|striptags }}</p>
 							<ul class="actions">
-								<li><a href="{% url "blog-entry" slug=blog.slug %}" class="button alt">Read More</a></li>
+								<li><a href="{% url "all-index" page=1 %}" class="button alt">All Posts</a></li>
 							</ul>
 						</section>
 						
